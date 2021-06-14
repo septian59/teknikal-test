@@ -48,7 +48,7 @@ FILESYSTEM_DRIVER=public //tambahkan baris ini
 ```
 3. **Migrate database dan seed**
 ```bash
-php artisan refresh:fresh --seed
+php artisan migrate:fresh --seed
 ```
 
 4. **Jalankan Website**
