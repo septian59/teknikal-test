@@ -37,7 +37,14 @@ git clone https://github.com/septian59/teknikal-test.git
 cd teknikal-test
 composer install
 ```
-2. **Edit dan tambahkan di baris ``.env``**
+2. **Rename dan Coppy ``.env.example`` ke ``.env``
+
+3. **Jalankan perintah**
+```bash
+php artisan key:generate
+```
+
+4. **Edit dan tambahkan di baris ``.env``**
 ```
 DB_PORT=3306
 DB_DATABASE=<YOUR DATABASE NAME>
@@ -46,12 +53,12 @@ DB_PASSWORD=<YOUR DATABASE PASSWORD>
 
 FILESYSTEM_DRIVER=public //tambahkan baris ini
 ```
-3. **Migrate database dan seed**
+5. **Migrate database dan seed**
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-4. **Jalankan Website**
+6. **Jalankan Website**
 ``` bash
 php artisan serve
 ```
