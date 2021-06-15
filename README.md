@@ -37,7 +37,7 @@ git clone https://github.com/septian59/teknikal-test.git
 cd teknikal-test
 composer install
 ```
-2. **Rename dan Coppy ``.env.example`` ke ``.env``**
+2. **Rename atau Coppy ``.env.example`` ke ``.env``**
 
 3. **Jalankan perintah**
 ```bash
