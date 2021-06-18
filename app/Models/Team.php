@@ -18,6 +18,11 @@ class Team extends Model
         return $this->belongsTo(City::class);
     }
 
+    public function players()
+    {
+        return $this->hasMany(Player::class);
+    }
+
     public function getLogo()
     {
         if (substr($this->logo_url, 0, 5) == "https") {

@@ -75,9 +75,36 @@
         data-parent="#accordionSidebar"
       >
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">City Components:</h6>
+          <h6 class="collapse-header">Team Components:</h6>
           <a class="collapse-item" href="{{route('team.index')}}">CRUD Team</a>
           <a class="collapse-item" href="{{route('team.recyle')}}">Recycle</a>
+        </div>
+      </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item {{ Nav::isResource('player')}}">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseFour"
+        aria-expanded="true"
+        aria-controls="collapseFour"
+      >
+        <i class="fas fa-users"></i>
+        <span>Player</span>
+      </a>
+      <div
+        id="collapseFour"
+        class="collapse"
+        aria-labelledby="headingTree"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Player Components:</h6>
+          <a class="collapse-item" href="{{route('player.index')}}">CRUD Player</a>
+          <a class="collapse-item" href="">Recycle</a>
         </div>
       </div>
     </li>

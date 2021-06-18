@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataController;
+use App\Http\Controllers\Admin\PlayerController;
 use App\Http\Controllers\Admin\TeamController;
 
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('city-deleted', [CityController::class, 'cityDeleted'])->name('city.recyle');
     Route::get('city/data', [DataController::class, 'cities'])->name('city.data');
     Route::get('team/data', [DataController::class, 'teams'])->name('team.data');
+    Route::get('player/data', [DataController::class, 'players'])->name('player.data');
 
     Route::get('city-deleted/data', [DataController::class, 'citiesDeleted'])->name('city.delete');
     Route::get('team-deleted/data', [DataController::class, 'teamsDeleted'])->name('team.delete');
@@ -55,6 +57,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::delete('team/{team:id}', [TeamController::class, 'destroy'])->name('team.destroy');
     Route::get('team/{team:id}/restore', [TeamController::class, 'restore'])->name('team.restore');
     Route::get('team/{team:id}/force', [TeamController::class, 'force'])->name('team.force');
+
+    Route::get('player', [PlayerController::class, 'index'])->name('player.index');
+    Route::get('player/create', [PlayerController::class, 'create'])->name('player.create');
+    Route::post('player/store', [PlayerController::class, 'store'])->name('player.store');
+    Route::get('player/{player:id}/edit', [PlayerController::class, 'edit'])->name('player.edit');
+    Route::patch('player/{player:id}', [PlayerController::class, 'update'])->name('player.update');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -7,16 +7,20 @@
     <div class="col-lg-12 ">
         <div class="card shadow mb-4">
             <div class="d-flex card-header py-3 justify-content-between">
-              <h5 class="m-0 font-weight-bold text-primary">Data City</h5>
-              <a href="{{route('city.create')}}" class="btn btn-primary my-3">Tambah City</a>
+              <h5 class="m-0 font-weight-bold text-primary">Data Pemain</h5>
+              <a href="{{route('player.create')}}" class="btn btn-primary my-3">Tambah Pemain</a>
             </div>
             <div class="card-body">
                 <table id="dataTables" class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kota</th>
-                            <th>Action</th>
+                            <th>Nama Pemain</th>
+                            <th>Team</th>
+                            <th>Posisi</th>
+                            <th>Berat Badan</th>
+                            <th>Nomor Punggung</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                 </table>
@@ -26,11 +30,11 @@
     </div>
 </div>
 
-    <form action="" method="post" id="deleteForm">
+    {{-- <form action="" method="post" id="deleteForm">
         @csrf
         @method('delete')
     <button type="submit" style="display: none">Delete</button>
-    </form>
+    </form> --}}
 
 @endsection
 
@@ -40,10 +44,14 @@
             $('#dataTables').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('city.data') }}',
+                ajax: '{{ route('player.data') }}',
                 columns: [
                     {data: 'DT_RowIndex', orderable: false, searchable: false},
                     {data: 'name'},
+                    {data: 'team'},
+                    {data: 'position'},
+                    {data: 'berat_badan'},
+                    {data: 'nomor'},
                     {data: 'action'},
                 ]
             })

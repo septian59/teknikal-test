@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -40,5 +41,16 @@ class DataController extends Controller
         })->editColumn('logo_url', function (Team $model) {
             return '<img src="' . $model->getLogo() . '" height="150px">';
         })->addIndexColumn()->rawColumns(['logo_url', 'actionDel'])->toJson();
+    }
+
+    public function players()
+    {
+        $players = Player::orderBy('name', 'ASC');
+
+        return datatables()->of($players)->addColumn('action', 'admin.player.action')->addColumn('team', function (Player $model) {
+            return $model->team->name;
+        })->addColumn('position', function (Player $model) {
+            return $model->position->name;
+        })->addIndexColumn()->rawColumns(['action'])->toJson();
     }
 }

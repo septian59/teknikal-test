@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             CityTableSeeder::class,
             TeamTableSeeder::class,
+            PositionSeeder::class,
+            PlayerSeeder::class,
         ]);
     }
 }
