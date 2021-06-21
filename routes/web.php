@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataController;
 use App\Http\Controllers\Admin\PlayerController;
 use App\Http\Controllers\Admin\TeamController;
-
+use App\Models\Player;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +38,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('city-deleted/data', [DataController::class, 'citiesDeleted'])->name('city.delete');
     Route::get('team-deleted/data', [DataController::class, 'teamsDeleted'])->name('team.delete');
+    Route::get('player-deleted/data', [DataController::class, 'playersDeleted'])->name('player.delete');
 
     Route::get('city/create', [CityController::class, 'create'])->name('city.create');
     Route::post('city/store', [CityController::class, 'store'])->name('city.store');
@@ -59,10 +60,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('team/{team:id}/force', [TeamController::class, 'force'])->name('team.force');
 
     Route::get('player', [PlayerController::class, 'index'])->name('player.index');
+    Route::get('player-deleted', [PlayerController::class, 'playersDeleted'])->name('player.recyle');
     Route::get('player/create', [PlayerController::class, 'create'])->name('player.create');
     Route::post('player/store', [PlayerController::class, 'store'])->name('player.store');
     Route::get('player/{player:id}/edit', [PlayerController::class, 'edit'])->name('player.edit');
     Route::patch('player/{player:id}', [PlayerController::class, 'update'])->name('player.update');
+    Route::delete('player/{player:id}', [PlayerController::class, 'destroy'])->name('player.destroy');
+    Route::get('player/{player:id}/restore', [PlayerController::class, 'restore'])->name('player.restore');
+    Route::get('player/{player:id}/force', [PlayerController::class, 'force'])->name('player.force');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

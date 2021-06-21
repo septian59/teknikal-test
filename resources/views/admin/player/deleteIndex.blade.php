@@ -7,8 +7,8 @@
     <div class="col-lg-12 ">
         <div class="card shadow mb-4">
             <div class="d-flex card-header py-3 justify-content-between">
-              <h5 class="m-0 font-weight-bold text-primary">Data Pemain</h5>
-              <a href="{{route('player.create')}}" class="btn btn-primary my-3">Tambah Pemain</a>
+              <h5 class="m-0 font-weight-bold text-primary">Recyle Pemain</h5>
+              
             </div>
             <div class="card-body">
                 <table id="dataTables" class="table table-bordered table-hover">
@@ -30,9 +30,8 @@
     </div>
 </div>
 
-    <form action="" method="post" id="deletePlayer">
-        @csrf
-        @method('delete')
+    <form action="" method="get" id="deletePlayerPerm">
+       
     <button type="submit" style="display: none">Delete</button>
     </form>
 
@@ -44,7 +43,7 @@
             $('#dataTables').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('player.data') }}',
+                ajax: '{{ route('player.delete') }}',
                 columns: [
                     {data: 'DT_RowIndex', orderable: false, searchable: false},
                     {data: 'name'},

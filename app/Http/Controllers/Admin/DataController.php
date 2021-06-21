@@ -53,4 +53,15 @@ class DataController extends Controller
             return $model->position->name;
         })->addIndexColumn()->rawColumns(['action'])->toJson();
     }
+
+    public function playersDeleted()
+    {
+        $player = Player::onlyTrashed()->get();
+
+        return datatables()->of($player)->addColumn('action', 'admin.player.actionDeleted')->addColumn('team', function (Player $model) {
+            return $model->team->name;
+        })->addColumn('position', function (Player $model) {
+            return $model->position->name;
+        })->addIndexColumn()->rawColumns(['action'])->toJson();
+    }
 }

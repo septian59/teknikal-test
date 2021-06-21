@@ -104,7 +104,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Player Components:</h6>
           <a class="collapse-item" href="{{route('player.index')}}">CRUD Player</a>
-          <a class="collapse-item" href="">Recycle</a>
+          <a class="collapse-item" href="{{route('player.recyle')}}">Recycle</a>
         </div>
       </div>
     </li>

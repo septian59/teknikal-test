@@ -21,6 +21,11 @@ class PlayerController extends Controller
         return view('admin.player.index');
     }
 
+    public function playersDeleted()
+    {
+        return view('admin.player.deleteIndex');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -126,8 +131,25 @@ class PlayerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Player $player)
     {
-        //
+        $player->delete();
+
+        return redirect()->to('/admin/player')->with('success', 'Data masuk ke recycle');
+    }
+
+    public function restore($id)
+    {
+        $player = Player::onlyTrashed()->where('id', $id);
+        $player->restore();
+
+        return redirect()->to('/admin/player')->with('success', 'Data berhasil di restore');
+    }
+
+    public function force($id)
+    {
+        $player = Player::onlyTrashed()->where('id', $id);
+        $player->forceDelete();
+        return redirect()->to('/admin/player')->with('success', 'Data berhasil di hapus permanen');
     }
 }
