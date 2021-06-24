@@ -1,6 +1,7 @@
-<a href="{{route('player.edit', $model)}}" class="btn btn-warning">Edit</a>
+<div class="d-flex">
+<a href="{{route('player.edit', $model)}}" class="btn btn-warning mr-2">Edit</a>
 <button href="{{route('player.destroy', $model)}}" class="btn btn-danger" id="delete">Delete</button>
-
+</div>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

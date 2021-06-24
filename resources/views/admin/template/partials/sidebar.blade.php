@@ -109,6 +109,34 @@
       </div>
     </li>
 
+     <!-- Nav Item - Pages Collapse Menu -->
+     <li class="nav-item {{ Nav::isResource('competition')}}">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseFive"
+        aria-expanded="true"
+        aria-controls="collapseFive"
+      >
+        <i class="fas fa-futbol"></i>
+        <span>Competition</span>
+      </a>
+      <div
+        id="collapseFive"
+        class="collapse"
+        aria-labelledby="headingTree"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Competition Components:</h6>
+          <a class="collapse-item" href="{{route('competition.index')}}">CRUD Competition</a>
+          <a class="collapse-item" href="">Recycle</a>
+        </div>
+      </div>
+    </li>
+
+
     <!-- Nav Item - Charts -->
 
 

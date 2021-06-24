@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\CompetitionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DataController;
 use App\Http\Controllers\Admin\PlayerController;
@@ -34,7 +35,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('city-deleted', [CityController::class, 'cityDeleted'])->name('city.recyle');
     Route::get('city/data', [DataController::class, 'cities'])->name('city.data');
     Route::get('team/data', [DataController::class, 'teams'])->name('team.data');
+    Route::get('team/{team:id}/show/data', [DataController::class, 'teamPlayer'])->name('teamPlayer.data');
     Route::get('player/data', [DataController::class, 'players'])->name('player.data');
+    Route::get('competition/data', [DataController::class, 'competitions'])->name('competition.data');
 
     Route::get('city-deleted/data', [DataController::class, 'citiesDeleted'])->name('city.delete');
     Route::get('team-deleted/data', [DataController::class, 'teamsDeleted'])->name('team.delete');
@@ -50,6 +53,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('city/{city:id}/force', [CityController::class, 'force'])->name('city.force');
 
     Route::get('team', [TeamController::class, 'index'])->name('team.index');
+    Route::get('team/{team:id}/show', [TeamController::class, 'show'])->name('team.show');
     Route::get('team-deleted', [TeamController::class, 'teamsDeleted'])->name('team.recyle');
     Route::get('team/create', [TeamController::class, 'create'])->name('team.create');
     Route::post('team/store', [TeamController::class, 'store'])->name('team.store');
@@ -68,6 +72,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::delete('player/{player:id}', [PlayerController::class, 'destroy'])->name('player.destroy');
     Route::get('player/{player:id}/restore', [PlayerController::class, 'restore'])->name('player.restore');
     Route::get('player/{player:id}/force', [PlayerController::class, 'force'])->name('player.force');
+
+    Route::get('competition', [CompetitionController::class, 'index'])->name('competition.index');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

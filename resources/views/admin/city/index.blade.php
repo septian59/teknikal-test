@@ -11,6 +11,7 @@
               <a href="{{route('city.create')}}" class="btn btn-primary my-3">Tambah City</a>
             </div>
             <div class="card-body">
+                <div class="table-responsive">
                 <table id="dataTables" class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -20,6 +21,7 @@
                         </tr>
                     </thead>
                 </table>
+            </div>
             </div>
           </div>
 
@@ -40,6 +42,7 @@
             $('#dataTables').DataTable({
                 processing: true,
                 serverSide: true,
+                responsive: true,
                 ajax: '{{ route('city.data') }}',
                 columns: [
                     {data: 'DT_RowIndex', orderable: false, searchable: false},

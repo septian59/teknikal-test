@@ -1,5 +1,7 @@
-<a href="{{route('city.restore', $model)}}" class="btn btn-info">Restore</a>
+<div class="d-flex">
+<a href="{{route('city.restore', $model)}}" class="btn btn-info mr-2">Restore</a>
 <button href="{{route('city.force', $model)}}" class="btn btn-danger" id="deletePerm">Delete Permanen</button>
+</div>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

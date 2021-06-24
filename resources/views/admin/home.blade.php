@@ -46,7 +46,7 @@
                   Pemain
                 </div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                  200
+                  {{$players}}
                 </div>
               </div>
               <div class="col-auto">

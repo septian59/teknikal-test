@@ -11,6 +11,7 @@
               
             </div>
             <div class="card-body">
+                <div class="table-responsive">
                 <table id="dataTables" class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -24,6 +25,7 @@
                         </tr>
                     </thead>
                 </table>
+            </div>
             </div>
           </div>
 
@@ -43,6 +45,7 @@
             $('#dataTables').DataTable({
                 processing: true,
                 serverSide: true,
+                responsive: true,
                 ajax: '{{ route('player.delete') }}',
                 columns: [
                     {data: 'DT_RowIndex', orderable: false, searchable: false},

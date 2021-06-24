@@ -7,30 +7,34 @@
     <div class="col-lg-12 ">
         <div class="card shadow mb-4">
             <div class="d-flex card-header py-3 justify-content-between">
-              <h5 class="m-0 font-weight-bold text-primary">Recyle City</h5>
+              <h5 class="m-0 font-weight-bold text-primary">Data Competition</h5>
+              <a href="" class="btn btn-primary my-3">Tambah Kompetisi</a>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
                 <table id="dataTables" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Nama Kota</th>
-                            <th>Action</th>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Team 1</th>
+                            <th>Team 2</th>
+                            <th>Skor Team 1</th>
+                            <th>Skor Team 2</th>
                         </tr>
                     </thead>
                 </table>
             </div>
-            </div>
           </div>
 
     </div>
-</div>    
+</div>
 
-    <form action="" method="get" id="deletePermanen">
-       
+    {{-- <form action="" method="post" id="deletePlayer">
+        @csrf
+        @method('delete')
     <button type="submit" style="display: none">Delete</button>
-    </form>
+    </form> --}}
+
 @endsection
 
 @push('scripts')
@@ -39,13 +43,14 @@
             $('#dataTables').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
-                ajax: '{{ route('city.delete') }}',
+                ajax: '{{ route('competition.data') }}',
                 columns: [
                     {data: 'DT_RowIndex', orderable: false, searchable: false},
-                    {data: 'name'},
-                    {data: 'actionDel'},
-                    
+                    {data: 'tanggal_tanding'},
+                    {data: 'team_id1'},
+                    {data: 'team_id2'},
+                    {data: 'skor_team1'},
+                    {data: 'skor_team2'},
                 ]
             })
         })

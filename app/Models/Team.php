@@ -23,6 +23,15 @@ class Team extends Model
         return $this->hasMany(Player::class);
     }
 
+    public function competitions1()
+    {
+        return $this->hasOne(Competition::class, 'team_id1');
+    }
+    public function competitions2()
+    {
+        return $this->hasOne(Competition::class, 'team_id2');
+    }
+
     public function getLogo()
     {
         if (substr($this->logo_url, 0, 5) == "https") {
